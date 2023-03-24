@@ -67,23 +67,23 @@ public class ExceptionalHandler {
 
 	}
 
-	@ExceptionHandler(UserNotFoundException.class)
-	public ResponseEntity<ErrorDetails> userNotFound(UserNotFoundException userNotFoundException,
-			WebRequest webRequest) {
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<ErrorDetails> userNotFound(NotFoundException notFoundException,
+													 WebRequest webRequest) {
 
 		ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), HttpStatus.NOT_FOUND.value(), "Not Found",
-				userNotFoundException.getMessage());
+				notFoundException.getMessage());
 
 		return new ResponseEntity<ErrorDetails>(errorDetails, HttpStatus.NOT_FOUND);
 
 	}
 
-	@ExceptionHandler(UserAlreadyExistException.class)
-	public ResponseEntity<ErrorDetails> userAlreadyExistException(UserAlreadyExistException userAlreadyExistException,
-			WebRequest webRequest) {
+	@ExceptionHandler(AlreadyExistException.class)
+	public ResponseEntity<ErrorDetails> userAlreadyExistException(AlreadyExistException alreadyExistException,
+																  WebRequest webRequest) {
 
 		ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), HttpStatus.CONFLICT.value(),
-				"User Already Exist", userAlreadyExistException.getMessage());
+				"User Already Exist", alreadyExistException.getMessage());
 		return new ResponseEntity<ErrorDetails>(errorDetails, HttpStatus.CONFLICT);
 	}
 
