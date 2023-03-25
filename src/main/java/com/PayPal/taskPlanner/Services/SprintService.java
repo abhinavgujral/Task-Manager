@@ -4,7 +4,7 @@ import com.PayPal.taskPlanner.DTO.SprintDTO;
 import com.PayPal.taskPlanner.Entities.Sprint;
 import com.PayPal.taskPlanner.Exceptions.NotFoundException;
 import com.PayPal.taskPlanner.Repositories.SprintRepository;
-import com.PayPal.taskPlanner.Utils.ModelMapperClass;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
